@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+	<provider id="mysql">
+		<driver id="mysql8" categories="sql" name="MySQL" class="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://{host}[:{port}]/[{database}]" port="3306" defaultUser="root" description="Driver for MySQL 8 and later" custom="false">
+			<library type="jar" path="maven:/com.mysql:mysql-connector-j:RELEASE" custom="false" version="8.2.0">
+				<file id="com.mysql:mysql-connector-j:RELEASE" version="8.2.0" path="${home}\Desktop\Server\drivers\maven\maven-central\com.mysql\mysql-connector-j-8.2.0.jar"/>
+				<file id="com.google.protobuf:protobuf-java:3.21.9" version="3.21.9" path="${home}\Desktop\Server\drivers\maven\maven-central\com.google.protobuf\protobuf-java-3.21.9.jar"/>
+			</library>
+			<library type="license" path="https://www.gnu.org/licenses/old-licenses/lgpl-2.0.txt" custom="false">
+				<file id="https://www.gnu.org/licenses/old-licenses/lgpl-2.0.txt" path="${home}\Desktop\Server\drivers\remote\licenses\old-licenses\lgpl-2.0.txt"/>
+			</library>
+			<parameter name="cache-meta-data" value="true"/>
+		</driver>
+	</provider>
+</drivers>
