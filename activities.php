@@ -45,7 +45,7 @@ if (isset($_POST['update_activity'])) {
                 activity_name = $activity_name,
                 description = $description,
                 duration = $duration,
-                capacity = ,
+                capacity = $capacity,
                 price = $price,
                 schedule_time = $schedule_time ,
                 status ENUM('Available', 'Unavailable') = $status
@@ -78,29 +78,25 @@ if (isset($_GET['delete_member'])) {
     <h1 font='bold'>ACTIVITIES DASHBOARD...</h1>
     <h2>ACTIVITIES</h2>
     <form method="POST">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="phone_number" placeholder="Phone Number">
-        <input type="date" name="date_of_birth" placeholder="Date of Birth">
-        <select name="gender" required>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-        <textarea name="address" placeholder="Address"></textarea>
-        <input type="date" name="join_date" required>
+        <input type="text" name="activity_name" placeholder="Name" required>
+        <input type="text" name="duration" placeholder="duration in hours">
+        <input type="text" name="capacity" placeholder="capacity">
+        <input type="text" name="price" placeholder="price in dollars">
+        <textarea name="description" placeholder="descreption"></textarea>
         <select name="status" required>
-            <option value="Active">Active</option>
-            <option value="Inactive">Inactive</option>
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
         </select>
-        <button type="submit" name="add_member">Add Member</button>
+
+        <button type="submit" name="add_activity">Add Activity</button>
     </form>
  
     <h2>Member List</h2>
     <table border="1">
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
+            <th>activity</th>
+            <th></th>
             <th>Phone</th>
             <th>Date of Birth</th>
             <th>Gender</th>
