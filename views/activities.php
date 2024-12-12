@@ -52,6 +52,110 @@ if (isset($_GET['delete_act'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        form input, form textarea, form select, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td input, td textarea, td select {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        td a {
+            color: #ff4d4d;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #ffcccc;
+        }
+
+        td a:hover {
+            background-color: #e60000;
+            color: white;
+        }
+
+        /* Additional styling for responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            form input, form select, form textarea, form button {
+                font-size: 14px;
+            }
+
+            table th, table td {
+                font-size: 14px;
+            }
+        }
+    </style>
+
     <title>Staff-Activities</title>
 </head>
 <body>
