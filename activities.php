@@ -55,8 +55,8 @@ if (isset($_POST['update_activity'])) {
 }
  
  
-if (isset($_GET['delete_member'])) {
-    $member_id = $_GET['delete_member'];
+if (isset($_GET['delete_act'])) {
+    $member_id = $_GET['delete_act'];
     $sql = "DELETE FROM Activity WHERE activity_id =$activity_id";
     $conn->query($sql);
 }
@@ -96,41 +96,30 @@ if (isset($_GET['delete_member'])) {
         <tr>
             <th>ID</th>
             <th>activity</th>
-            <th></th>
-            <th>Phone</th>
-            <th>Date of Birth</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Join Date</th>
+            <th>duration</th>
+            <th>capacity</th>
+            <th>price$</th>
+            <th>description</th>
             <th>Status</th>
-            <th>Actions</th>
         </tr>
         <?php while ($row = $result->fetch_assoc()): ?>
         <tr>
             <form method="POST">
-                <td><?= $row['member_id'] ?></td>
-                <td><input type="text" name="name" value="<?= $row['name'] ?>"></td>
-                <td><input type="email" name="email" value="<?= $row['email'] ?>"></td>
-                <td><input type="text" name="phone_number" value="<?= $row['phone_number'] ?>"></td>
-                <td><input type="date" name="date_of_birth" value="<?= $row['date_of_birth'] ?>"></td>
-                <td>
-                    <select name="gender">
-                        <option value="Male" <?= $row['gender'] == 'Male' ? 'selected' : '' ?>>Male</option>
-                        <option value="Female" <?= $row['gender'] == 'Female' ? 'selected' : '' ?>>Female</option>
-                    </select>
-                </td>
-                <td><textarea name="address"><?= $row['address'] ?></textarea></td>
-                <td><input type="date" name="join_date" value="<?= $row['join_date'] ?>"></td>
+                <td><?= $row['activity_id'] ?></td>
+                <td><input type="text" name="name" value="<?= $row['activity_name'] ?>"></td>
+                <td><input type="text" name="duration" value="<?= $row['duration'] ?>"></td>
+                <td><input type="text" name="capacity" value="<?= $row['capacity'] ?>"></td>
+                <td><input type="date" name="price" value="<?= $row['price'] ?>"></td>
                 <td>
                     <select name="status">
-                        <option value="Active" <?= $row['status'] == 'Active' ? 'selected' : '' ?>>Active</option>
-                        <option value="Inactive" <?= $row['status'] == 'Inactive' ? 'selected' : '' ?>>Inactive</option>
+                        <option value="Active" <?= $row['status'] == 'Avaible' ? 'Unavailable' : '' ?>>Avaible</option>
+                        <option value="Inactive" <?= $row['status'] == 'Unavailable' ? 'Avaible' : '' ?>>Unavailable</option>
                     </select>
                 </td>
                 <td>
-                    <input type="hidden" name="member_id" value="<?= $row['member_id'] ?>">
-                    <button type="submit" name="update_member">Update</button>
-                    <a href="?delete_member=<?= $row['member_id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                    <input type="hidden" name="activity_id" value="<?= $row['activity_id'] ?>">
+                    <button type="submit" name="update_activity">Update</button>
+                    <a href="?delete_act=<?= $row['activity_id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
                 </td>
             </form>
         </tr>
