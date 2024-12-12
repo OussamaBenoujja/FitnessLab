@@ -1,59 +1,63 @@
+
+
+
 <?php
  
 require 'dbConf.php';
  
  
 
-$result = $conn->query("SELECT * FROM Member");
+$result = $conn->query("SELECT * FROM Activity");
 
 $res = $conn->query("SELECT * FROM Admin");
 
 
 
-if (isset($_POST['add_member'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['phone_number'];
-    $date_of_birth = $_POST['date_of_birth'];
-    $gender = $_POST['gender'];
-    $address = $_POST['address'];
-    $join_date = $_POST['join_date'];
+if (isset($_POST['add_activity'])) {
+
+    $activity_name  = $_POST['activity_name'];
+    $description = $_POST['description'];
+    $duration  = $_POST['duration'];
+    $capacity  = $_POST['capacity'];
+    $price = $_POST['price'];
+    $schedule_time  = $_POST['schedule_time'];
     $status = $_POST['status'];
  
-    $sql = "INSERT INTO Member (name, email, phone_number, date_of_birth, price, schedule_time, status)
-            VALUES ('$name', '$email', '$phone_number', '$date_of_birth', '$gender', '$address', '$join_date', '$status')";
+    $sql = "INSERT INTO Activity (activity_name , description, duration, capacity, price, schedule_time, status)
+            VALUES ('$activity_name ', '$description ', '$duration', '$capacity', '$price', '$schedule_time', '$status')";
     $conn->query($sql);
 }
  
  
-if (isset($_POST['update_member'])) {
-    $member_id = $_POST['member_id'];
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['phone_number'];
-    $date_of_birth = $_POST['date_of_birth'];
-    $gender = $_POST['gender'];
-    $address = $_POST['address'];
-    $join_date = $_POST['join_date'];
+if (isset($_POST['update_activity'])) {
+    $activity_id  = $_POST['activity_id '];
+    $activity_name  = $_POST['activity_name'];
+    $description = $_POST['description'];
+    $duration  = $_POST['duration'];
+    $capacity  = $_POST['capacity'];
+    $price = $_POST['price'];
+    $schedule_time  = $_POST['schedule_time'];
     $status = $_POST['status'];
  
-    $sql = "UPDATE Member SET 
-                name='$name', 
-                email='$email', 
-                phone_number='$phone_number', 
-                date_of_birth='$date_of_birth', 
-                gender='$gender', 
-                address='$address', 
-                join_date='$join_date', 
-                status='$status' 
-            WHERE member_id=$member_id";
+    $sql = "UPDATE Activity SET 
+
+                activity_id = $activity_id
+                activity_name = $activity_name,
+                description = $description,
+                duration = $duration,
+                capacity = ,
+                price = $price,
+                schedule_time = $schedule_time ,
+                status ENUM('Available', 'Unavailable') = $status
+
+            WHERE activity_id =$activity_id";
     $conn->query($sql);
 }
  
  
 if (isset($_GET['delete_member'])) {
     $member_id = $_GET['delete_member'];
-    $sql = "DELETE FROM Member WHERE member_id=$member_id";
+    $sql = "DELETE FROM Activity WHERE activity_id =$activity_id";
     $conn->query($sql);
 }
  
@@ -67,12 +71,12 @@ if (isset($_GET['delete_member'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Staff-Activities</title>
 </head>
 <body>
  
-    <h1 font='bold'>ADMIN DASHBOARD...</h1>
-    <h2>Add Member</h2>
+    <h1 font='bold'>ACTIVITIES DASHBOARD...</h1>
+    <h2>ACTIVITIES</h2>
     <form method="POST">
         <input type="text" name="name" placeholder="Name" required>
         <input type="email" name="email" placeholder="Email" required>

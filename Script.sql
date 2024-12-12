@@ -8,7 +8,7 @@ CREATE TABLE Member (
     date_of_birth DATE,
     gender ENUM('Male', 'Female'),
     address TEXT,
-    join_date DATE NOT NULL,
+    join_date DATE NOT NULL,é
     status ENUM('Active', 'Inactive') NOT NULL
 );
 
